@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frozen Roads & Frozen Falls — Boston to Niagara, Dec 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ice: #e8f4f8;
+    --deep-night: #0d1b2a;
+    --slate: #1e3448;
+    --frost: #a8d5e8;
+    --glacier: #5ba3c9;
+    --cream: #f5f0e8;
+    --gold: #c9a84c;
+    --mist: #b8cdd8;
+    --storm: #2c3e50;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--deep-night);
+    color: var(--cream);
+    font-family: 'Lora', Georgia, serif;
+    overflow-x: hidden;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(160deg, #0d1b2a 0%, #1a3050 40%, #0a2540 70%, #051520 100%);
+  }
+
+  .snowflakes {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .snowflake {
+    position: absolute;
+    top: -20px;
+    color: rgba(255,255,255,0.7);
+    font-size: 1.2em;
+    animation: fall linear infinite;
+    user-select: none;
+  }
+
+  @keyframes fall {
+    to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+
+  .hero-tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--frost);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 1s ease 0.2s both;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 7vw, 6rem);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 1.2rem;
+    animation: fadeUp 1s ease 0.4s both;
+  }
+
+  .hero-title em {
+    color: var(--frost);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--mist);
+    letter-spacing: 0.1em;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 1s ease 0.6s both;
+  }
+
+  .hero-divider {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto 2rem;
+    animation: fadeUp 1s ease 0.8s both;
+  }
+
+  .hero-intro {
+    max-width: 620px;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--mist);
+    font-style: italic;
+    animation: fadeUp 1s ease 1s both;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--mist);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── ROUTE BAR ─── */
+  .route-bar {
+    background: var(--slate);
+    border-top: 1px solid rgba(168,213,232,0.2);
+    border-bottom: 1px solid rgba(168,213,232,0.2);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    color: var(--frost);
+  }
+
+  .route-stop { color: var(--white); font-weight: 500; }
+  .route-arrow { color: var(--gold); font-size: 1.2rem; }
+
+  /* ─── MAIN CONTENT ─── */
+  .content {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* ─── DAY SECTIONS ─── */
+  .day-section {
+    padding: 5rem 0 3rem;
+    border-bottom: 1px solid rgba(168,213,232,0.1);
+  }
+
+  .day-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 0.95rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+
+  .day-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+  }
+
+  .day-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--frost);
+    margin-bottom: 2.5rem;
+  }
+
+  .pull-quote {
+    border-left: 3px solid var(--gold);
+    padding: 1rem 1.5rem;
+    margin: 2.5rem 0;
+    background: rgba(91,163,201,0.06);
+  }
+
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--frost);
+    line-height: 1.6;
+  }
+
+  .body-text {
+    font-size: 1.05rem;
+    line-height: 1.95;
+    color: #c8d8e4;
+    margin-bottom: 1.6rem;
+  }
+
+  .body-text strong {
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  /* ─── LOCATION CARDS ─── */
+  .location-card {
+    background: linear-gradient(135deg, rgba(30,52,72,0.8) 0%, rgba(13,27,42,0.9) 100%);
+    border: 1px solid rgba(168,213,232,0.2);
+    border-radius: 2px;
+    padding: 2rem 2.2rem;
+    margin: 2.5rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .location-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--gold), var(--glacier));
+  }
+
+  .location-card-icon {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .location-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+  }
+
+  .location-card .loc-meta {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  /* ─── STORM SECTION ─── */
+  .storm-section {
+    background: linear-gradient(135deg, #0a0e14 0%, #1a2030 50%, #0d1520 100%);
+    border: 1px solid rgba(100,120,150,0.3);
+    border-radius: 2px;
+    padding: 3rem 2.5rem;
+    margin: 3rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .storm-section::after {
+    content: '⚡';
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    font-size: 12rem;
+    opacity: 0.03;
+    pointer-events: none;
+  }
+
+  .storm-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: #8ab0cc;
+    font-size: 0.9rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+
+  .storm-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: #d0e8f0;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ─── STATS STRIP ─── */
+  .stats-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+    padding: 2rem;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(168,213,232,0.1);
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--frost);
+    display: block;
+  }
+
+  .stat-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--mist);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    text-align: center;
+    padding: 4rem 2rem;
+    border-top: 1px solid rgba(168,213,232,0.1);
+    background: rgba(0,0,0,0.3);
+  }
+
+  footer p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--mist);
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  footer .sign {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--frost);
+    margin-top: 1rem;
+  }
+
+  /* ─── ICE TEXTURE OVERLAY ─── */
+  .day-header-art {
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--glacier), var(--frost), var(--glacier), transparent);
+    margin-bottom: 2.5rem;
+    opacity: 0.4;
+  }
+
+  .emoji-divider {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 2rem 0;
+    opacity: 0.6;
+  }
+
+  /* ─── PHOTO BLOCKS ─── */
+  .photo-block {
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(168,213,232,0.15);
+  }
+
+  .photo-block img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.85) brightness(0.9);
+    transition: filter 0.4s ease, transform 0.6s ease;
+  }
+
+  .photo-block:hover img {
+    filter: saturate(1.1) brightness(1.0);
+    transform: scale(1.02);
+  }
+
+  .photo-caption {
+    background: linear-gradient(to right, rgba(13,27,42,0.95), rgba(30,52,72,0.85));
+    padding: 0.7rem 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .photo-caption span {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--mist);
+    font-size: 0.88rem;
+    letter-spacing: 0.05em;
+  }
+
+  .photo-caption .photo-tag {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--gold);
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-style: normal;
+  }
+
+  .photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin: 2rem 0;
+  }
+
+  .photo-grid .photo-block img {
+    height: 240px;
+  }
+
+  @media (max-width: 600px) {
+    .photo-grid { grid-template-columns: 1fr; }
+    .photo-block img { height: 260px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Snowflakes -->
+<div class="snowflakes" id="snowflakes"></div>
+
+<!-- ════════════════ HERO ════════════════ -->
+<section class="hero">
+  <p class="hero-tag">A Winter Road Trip Diary &nbsp;·&nbsp; December 2025</p>
+  <h1 class="hero-title">Frozen Roads &<br><em>Frozen Falls</em></h1>
+  <p class="hero-sub">Boston → Taughannock → Niagara → Ithaca → Boston</p>
+  <div class="hero-divider"></div>
+  <p class="hero-intro">
+    Four days. One car. A thousand miles of winter highway, roaring waterfalls draped in ice,
+    the thunder of Niagara under a December sky — and a snow storm that turned our homeward journey
+    into the most unforgettable leg of the entire trip.
+  </p>
+  <div class="scroll-hint">↓ &nbsp; scroll to read &nbsp; ↓</div>
+</section>
+
+<!-- ════════════════ ROUTE BAR ════════════════ -->
+<div class="route-bar">
+  <span class="route-stop">Boston, MA</span>
+  <span class="route-arrow">→</span>
+  <span class="route-stop">Taughannock Falls, NY</span>
+  <span class="route-arrow">→</span>
+  <span class="route-stop">Niagara Falls, NY</span>
+  <span class="route-arrow">→</span>
+  <span class="route-stop">Ithaca Falls, NY</span>
+  <span class="route-arrow">→</span>
+  <span class="route-stop">Boston, MA</span>
+</div>
+
+<!-- ════════════════ STATS ════════════════ -->
+<div class="content">
+  <div class="stats-strip">
+    <div class="stat">
+      <span class="stat-value">4</span>
+      <span class="stat-label">Days</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">~1,100</span>
+      <span class="stat-label">Miles Driven</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">3</span>
+      <span class="stat-label">Waterfalls</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">12°F</span>
+      <span class="stat-label">Coldest Temp</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">1</span>
+      <span class="stat-label">Snow Storm</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ DAY 1 ════════════════ -->
+<div class="content">
+  <section class="day-section">
+    <div class="day-header-art"></div>
+    <p class="day-label">December 23, 2025 &nbsp;·&nbsp; Day One</p>
+    <h2 class="day-title">The Road Awakens —<br>Boston to Niagara</h2>
+    <p class="day-subtitle">Via the hidden wonder of Taughannock Falls</p>
+
+    <p class="body-text">
+      The alarm rang at <strong>4:30 AM</strong>. Outside our apartment window in Boston, the streetlights threw orange halos on a thin skin of overnight frost. We'd packed the night before — thermals, down jackets, hand warmers stuffed into every pocket — but standing in that pre-dawn silence with coffee steaming in our hands, the sheer scale of the drive ahead felt suddenly, gloriously real.
+    </p>
+
+    <p class="body-text">
+      By 5:15 AM, we were rolling west on the <strong>Massachusetts Turnpike (I-90)</strong>, the city dissolving behind us into a ribbon of red taillights. The sky was the dark blue of deep ocean water. A winter road trip on the eve of Christmas Eve has a particular kind of magic — everyone heading somewhere, the whole country in motion.
+    </p>
+
+    <div class="pull-quote">
+      <p>"There is no better feeling than driving west in December darkness, coffee in hand, the whole country still asleep, knowing a waterfall is waiting."</p>
+    </div>
+
+    <!-- TAUGHANNOCK FALLS -->
+    <div class="location-card">
+      <div class="photo-block" style="margin: 0 0 1.5rem 0;">
+        <img src="https://nyfalls.com/wp-content/uploads/2023/04/taughannock-falls-state-park-photos-video-Information-maps-trails-15.webp"
+             alt="Taughannock Falls plunging into its amphitheater gorge, Trumansburg NY"
+             loading="lazy">
+        <div class="photo-caption">
+          <span>Taughannock Falls — the highest single-drop waterfall east of the Rockies</span>
+          <span class="photo-tag">Trumansburg, NY</span>
+        </div>
+      </div>
+      <div class="location-card-icon">💧</div>
+      <h3>Taughannock Falls State Park</h3>
+      <p class="loc-meta">Trumansburg, NY &nbsp;·&nbsp; Arrived ~12:30 PM</p>
+      <p class="body-text">
+        We turned off Route 89 just past Trumansburg, New York, and suddenly the landscape changed entirely. Towering gorge walls, draped in frozen seep-water and icicle curtains three stories tall, channeled us toward one of the <strong>tallest free-falling waterfalls east of the Rockies</strong> — a 215-foot plunge that makes Niagara look almost modest by comparison.
+      </p>
+      <p class="body-text">
+        The trail from the lower parking lot was a sheet of compacted ice and we were grateful for the micro-spikes we'd tossed in the trunk at the last minute. The trees lining the gorge were winter-bare, their skeletal branches laced with hoarfrost, making the whole scene look like a woodcut illustration from a Victorian novel. And then — we heard it before we saw it: a low, resonant boom echoing off the canyon walls.
+      </p>
+      <p class="body-text">
+        Taughannock in December is theatrical. The falls themselves were partially frozen, a curtain of white ice framing the central torrent of dark, thundering water that crashed into a pool rimmed with ice shelves. Mist hung in the air and froze on our eyelashes. We stood there for a long time, saying very little. Some places silence you completely.
+      </p>
+    </div>
+
+    <p class="body-text">
+      We ate lunch at the picnic shelter — <strong>thermoses of tomato soup and turkey sandwiches</strong> — with the roar of Taughannock as our soundtrack. A pair of mergansers bobbed on the icy creek upstream, utterly unbothered by the cold in a way we envied deeply. Then, reluctantly, we pulled ourselves away. <strong>Niagara was still three hours northwest.</strong>
+    </p>
+
+    <div class="photo-block">
+      <img src="https://earthathome.org/wp-content/uploads/2020/08/TaughannockFalls-Spring2019-2000px-1200x675.jpg"
+           alt="Taughannock Falls viewed from the gorge, showing the full 215-foot plunge"
+           loading="lazy">
+      <div class="photo-caption">
+        <span>The full 215-foot plunge of Taughannock Falls — 33 feet taller than Niagara</span>
+        <span class="photo-tag">Photo: Jonathan R. Hendricks / CC BY-NC-SA 4.0</span>
+      </div>
+    </div>
+
+    <div class="emoji-divider">❄️ · · · · · ❄️</div>
+
+    <p class="body-text">
+      The drive north on <strong>I-390 and I-90 toward Buffalo</strong> was hypnotic — flat farmland turned white, silos standing like sentinels, the sky settling into that particular pewter grey that only exists in western New York in winter. Lake-effect cloud cover smothered the sun entirely by the time we crossed into Erie County. The temperature on the dashboard read <strong>19°F</strong>.
+    </p>
+
+    <!-- NIAGARA FALLS ARRIVAL -->
+    <div class="location-card">
+      <div class="photo-block" style="margin: 0 0 1.5rem 0;">
+        <img src="https://nyfalls.com/wp-content/uploads/2023/05/maid-of-the-mist-and-horseshoe-falls.webp"
+             alt="Horseshoe Falls at Niagara with the Maid of the Mist boat in the mist"
+             loading="lazy">
+        <div class="photo-caption">
+          <span>Horseshoe Falls — 750,000 gallons per second of thundering power</span>
+          <span class="photo-tag">Niagara Falls, NY/ON</span>
+        </div>
+      </div>
+      <div class="location-card-icon">🌊</div>
+      <h3>Niagara Falls — First Sight</h3>
+      <p class="loc-meta">Niagara Falls, NY &nbsp;·&nbsp; Arrived ~4:00 PM</p>
+      <p class="body-text">
+        We heard Niagara before we parked the car. That is not an exaggeration. There is a sub-bass rumble that seems to come from everywhere at once — from the ground, from the air — and it registers in your chest before your brain even processes it as sound. We walked quickly toward Prospect Point in the fading December light, and there it was.
+      </p>
+      <p class="body-text">
+        <strong>American Falls and Bridal Veil Falls</strong> wore dramatic winter crowns — massive ice bridges building at the base, enormous sheets of ice clinging to the rock faces on either side of the cataracts. The mist rose in great white plumes that immediately froze onto the railings, the benches, the camera lens. The Horseshoe Falls on the Canadian side glowed an impossible shade of teal-green, churning and roaring with a power that made every other waterfall we'd ever seen feel like a garden ornament.
+      </p>
+      <p class="body-text">
+        The <strong>Winter Festival of Lights</strong> was in full swing along the parkway, and the falls were illuminated with colored floodlights after dark — blue, violet, white — that turned the mist into aurora-like curtains of color rising into the night sky. We stayed until our fingers went numb and then stayed ten minutes more, because some things are worth the discomfort.
+      </p>
+    </div>
+
+    <p class="body-text">
+      We checked into our hotel in Niagara Falls, NY, stripped off our frozen outer layers, and ordered room-service pizza that we ate wrapped in every blanket in the room. Day One: done. Bones aching, eyes wide, hearts full.
+    </p>
+  </section>
+
+  <!-- ════════════════ DAY 2 ════════════════ -->
+  <section class="day-section">
+    <div class="day-header-art"></div>
+    <p class="day-label">December 24, 2025 &nbsp;·&nbsp; Day Two</p>
+    <h2 class="day-title">Christmas Eve<br>at the Falls</h2>
+    <p class="day-subtitle">Walking the gorge in a world turned white</p>
+
+    <p class="body-text">
+      We woke on Christmas Eve to a fresh dusting of snow and the falls still audible from bed. The tourist crowd, surprisingly thin for the holiday, allowed us the luxury of lingering at viewpoints without jostling for position. The morning light — soft, diffused through lake-effect clouds — painted everything in silver and grey. It was possibly the most beautiful light we'd ever photographed in.
+    </p>
+
+    <div class="pull-quote">
+      <p>"On Christmas Eve, with snow in the air and the falls roaring at full winter fury, Niagara feels less like a tourist attraction and more like a force of mythology."</p>
+    </div>
+
+    <p class="body-text">
+      We spent the afternoon exploring Niagara-on-the-Lake — a perfectly preserved 19th-century town about 15 minutes north, its main street draped in Christmas lights and greenery. We ducked into a warm bakery for butter tarts and hot cider, wandered through an independent bookshop, and watched the ice drift down the Niagara River as the early winter dark came on.
+    </p>
+
+    <p class="body-text">
+      Christmas Eve dinner was at a restaurant overlooking the falls, where the colored floodlights turned the mist into Christmas colors — red and gold and brilliant white. A jazz trio played in the corner. Outside the window, 750,000 gallons of water fell every second. It was an absurdly perfect Christmas Eve.
+    </p>
+  </section>
+
+  <!-- ════════════════ DAY 3 ════════════════ -->
+  <section class="day-section">
+    <div class="day-header-art"></div>
+    <p class="day-label">December 25, 2025 &nbsp;·&nbsp; Day Three</p>
+    <h2 class="day-title">Christmas Day<br>& Frozen Gorge</h2>
+    <p class="day-subtitle">A quiet, cold, extraordinary Christmas morning</p>
+
+    <p class="body-text">
+      Christmas morning at Niagara is one of those experiences that recalibrates your sense of the world. The park was nearly deserted at 7 AM when we walked out to Prospect Point in the dark grey pre-dawn. The temperature had dropped to <strong>12°F overnight</strong>, and the ice bridges below the falls had grown dramatically — thick, tortured shelves of blue-white ice extending far out from the base of the cataracts.
+    </p>
+
+    <p class="body-text">
+      We had the viewpoint almost entirely to ourselves for the better part of an hour. Just us, the falls, the ice, the cold, and somewhere overhead, invisible behind the clouds, Christmas Day coming to life across a continent. There is a profound quietness that can exist in the presence of enormous sound — and standing at the edge of the gorge that morning, we understood it completely.
+    </p>
+
+    <div class="pull-quote">
+      <p>"We exchanged our gifts with the falls roaring behind us — two small humans on the edge of something ancient, grateful for every cold, loud, beautiful second of it."</p>
+    </div>
+
+    <p class="body-text">
+      The afternoon was devoted to <strong>Niagara Gorge Trail</strong> — hiking down into the gorge itself, where the walls of shale and dolostone tower overhead and the river runs fast and black between its flanking ice formations. Every boulder and root was glazed with ice. Every overhang dripped frozen curtains. It was magnificent and slightly terrifying and absolutely worth every cautious step.
+    </p>
+
+    <p class="body-text">
+      Christmas dinner was humble by design: a pot of soup and good bread at a diner that was one of the only places open in town, shared with a family from Ohio and a couple from Montreal who'd also chosen Niagara for their Christmas. We swapped travel stories over bad coffee and it was, somehow, perfect.
+    </p>
+  </section>
+
+  <!-- ════════════════ DAY 4 ════════════════ -->
+  <section class="day-section">
+    <div class="day-header-art"></div>
+    <p class="day-label">December 26, 2025 &nbsp;·&nbsp; Day Four</p>
+    <h2 class="day-title">The Long Road Home —<br>Ithaca, Ice & the Storm</h2>
+    <p class="day-subtitle">A Boxing Day we will never forget</p>
+
+    <p class="body-text">
+      We left Niagara under a sky that couldn't quite decide what it wanted to do. The weather apps were showing a <strong>winter storm watch</strong> taking effect that afternoon across central and eastern New York, pushing into New England by evening. We figured we had a window: hit Ithaca Falls in the morning, then race the storm home. It was the kind of plan that sounds reasonable until it isn't.
+    </p>
+
+    <p class="body-text">
+      Heading southeast on <strong>Route 20 and Route 13</strong>, the landscape changed from flat lake-effect plains to the rolling, gorge-cut terrain of the Finger Lakes. By the time Ithaca's hills came into view, a few determined snowflakes had begun to fall.
+    </p>
+
+    <!-- ITHACA FALLS -->
+    <div class="location-card">
+      <div class="photo-block" style="margin: 0 0 1.5rem 0;">
+        <img src="https://nyfalls.com/wp-content/uploads/2023/03/ithaca-falls-new-york-waterfall-photos-video-Information-maps-trails-0.webp"
+             alt="Ithaca Falls on Fall Creek, 150 feet of cascading water in the heart of Ithaca NY"
+             loading="lazy">
+        <div class="photo-caption">
+          <span>Ithaca Falls — 150 ft of cascading power just steps from downtown Ithaca</span>
+          <span class="photo-tag">Ithaca, NY</span>
+        </div>
+      </div>
+      <div class="location-card-icon">🏔️</div>
+      <h3>Ithaca Falls</h3>
+      <p class="loc-meta">Ithaca, NY &nbsp;·&nbsp; Arrived ~11:00 AM</p>
+      <p class="body-text">
+        <strong>Ithaca Falls</strong>, tucked at the end of Falls Street in the heart of the city, is one of those waterfalls that shocks you with its scale given how close it sits to downtown. At <strong>150 feet wide and 76 feet tall</strong>, it's not subtle — a broad, muscular cascade that in December was half-cloaked in ice formations of extraordinary beauty.
+      </p>
+      <p class="body-text">
+        The surrounding cliff faces were covered in frozen seep — intricate formations of flowstone ice in shapes that looked sculpted: organ pipes, frozen waves, draped curtains of translucent blue-white. The viewing area was completely empty save for a single runner who jogged past us without breaking stride, apparently unmoved by the ice palace surrounding her. Ithaca locals, we gathered, are built differently.
+      </p>
+      <p class="body-text">
+        The snow was beginning to fall more seriously now — fat, deliberate flakes that collected on our jackets and accumulated on the pavement with quiet speed. We lingered as long as we dared, watching the cascade push through its ice frame, then walked back to the car with a growing sense of urgency. The storm was not waiting for us.
+      </p>
+    </div>
+
+    <!-- STORM SECTION -->
+    <div class="storm-section">
+      <p class="storm-label">⚡ &nbsp; The Snow Storm &nbsp; ⚡</p>
+      <h3 class="storm-title">Into the White: Driving Through the Storm</h3>
+
+      <p class="body-text" style="color:#a8c8dc;">
+        We left Ithaca at 12:15 PM. By 12:45, we knew we were in trouble.
+      </p>
+
+      <p class="body-text" style="color:#a8c8dc;">
+        The National Weather Service had upgraded the watch to a <strong>Winter Storm Warning</strong> while we were at the falls — a fast-moving system that had accelerated several hours ahead of its forecast track. What was supposed to be a gradual afternoon onset had become an immediate, full-bore event. We hit it on <strong>Route 79 heading east toward I-81</strong>, and the world simply vanished.
+      </p>
+
+      <div class="pull-quote">
+        <p style="color:#a0d0e8;">"Within thirty minutes, we could see perhaps thirty feet ahead. The road, the shoulder, the ditch — all one white. The windshield wipers beat frantically and still couldn't keep up."</p>
+      </div>
+
+      <p class="body-text" style="color:#a8c8dc;">
+        We dropped to <strong>25 mph</strong> and turned on the hazard lights, following the blur of red taillights from the truck ahead like a lighthouse in fog. The heater was cranked to maximum; the windows fogged and cleared in cycles. Outside, the wind had picked up — driving the snow horizontally, building drifts across the road in real time. A sign for a rest area appeared out of the white and we took it without discussion.
+      </p>
+
+      <p class="body-text" style="color:#a8c8dc;">
+        We sat for nearly <strong>forty-five minutes</strong> with the engine idling, watching the storm rage, sharing the last of the gas-station hot chocolate and the emergency granola bars we'd packed back in Boston. Trucks crept past on the highway. The rest area slowly filled with other refugees from the road — families with kids, a couple in an RV who reported that the interstate ahead was down to one passable lane.
+      </p>
+
+      <p class="body-text" style="color:#a8c8dc;">
+        There's a strange intimacy to waiting out a storm with strangers. We chatted with a retired teacher from Binghamton headed to her daughter's in Albany, and a young man in a plaid coat driving a delivery van who offered his extra windshield-washer fluid when he saw us struggling with our reservoir. Small kindnesses in big weather.
+      </p>
+
+      <p class="body-text" style="color:#a8c8dc;">
+        By <strong>3:30 PM</strong>, the worst of the band had pushed northeast and visibility opened to a quarter mile — enough. We merged back onto the highway with careful caution. The snow was still falling, but the world had edges again. We drove through a landscape completely transformed: every tree furred white, every road sign wearing a thick toupee of snow, the whole of central New York buried and beautiful and eerily still.
+      </p>
+
+      <p class="body-text" style="color:#a8c8dc;">
+        <strong>I-90 east toward Massachusetts</strong> had been salted and plowed to a manageable state, and we gradually relaxed, the tension of the storm hours leaving our shoulders somewhere around Springfield. By the time the Boston skyline appeared — familiar, glittering, home — it was nearly <strong>3:00 AM EST</strong>, many exhausting hours later than planned, but every mile of it earned.
+      </p>
+    </div>
+
+    <p class="body-text">
+      We sat in the parked car for a moment before going inside, neither of us quite ready to let the trip end. Four days. A thousand miles. Waterfalls in ice, Christmas at the gorge, the thunder of Niagara at 7 AM, a storm that humbled us thoroughly. We were exhausted and stiff and deeply, unreservedly happy.
+    </p>
+
+    <div class="pull-quote">
+      <p>"Road trips don't ask permission to become stories. They just do — quietly, mile by mile, fall by fall, storm by storm."</p>
+    </div>
+
+    <p class="body-text">
+      If you're considering a winter drive to Niagara — go. Layer up. Bring hot drinks and emergency snacks. Give the storm some respect. And whatever you do, don't skip Taughannock or Ithaca Falls. They are as good as the big one, just quieter about it.
+    </p>
+
+    <p class="body-text">
+      Until the next road. ❄️
+    </p>
+  </section>
+</div>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer>
+  <p>
+    Boston · Taughannock Falls · Niagara Falls · Ithaca Falls · Boston<br>
+    December 23–26, 2025
+  </p>
+  <p class="sign">— A Winter Road Trip Diary —</p>
+</footer>
+
+<script>
+  // Generate snowflakes
+  const container = document.getElementById('snowflakes');
+  const symbols = ['❄', '❅', '❆', '·', '*'];
+  for (let i = 0; i < 55; i++) {
+    const flake = document.createElement('div');
+    flake.className = 'snowflake';
+    flake.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    flake.style.left = Math.random() * 100 + 'vw';
+    flake.style.fontSize = (Math.random() * 1.2 + 0.5) + 'rem';
+    flake.style.animationDuration = (Math.random() * 8 + 6) + 's';
+    flake.style.animationDelay = (Math.random() * 10) + 's';
+    flake.style.opacity = Math.random() * 0.6 + 0.2;
+    container.appendChild(flake);
+  }
+</script>
+</body>
+</html>
