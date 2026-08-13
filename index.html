@@ -350,6 +350,154 @@
     text-transform: uppercase;
   }
 
+  /* ─── AT A GLANCE ─── */
+  .glance-panel{
+    margin: 3rem 0 3.5rem;
+    border: 1px solid rgba(168,213,232,0.2);
+    background: linear-gradient(135deg, rgba(30,52,72,0.6) 0%, rgba(13,27,42,0.75) 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 2.2rem 2.4rem 2.4rem;
+  }
+  .glance-panel::before{
+    content:'';
+    position:absolute; top:0; left:0; width:4px; height:100%;
+    background: linear-gradient(to bottom, var(--gold), var(--glacier));
+  }
+  .glance-panel-label{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    color: var(--gold);
+    font-size:0.9rem;
+    letter-spacing:0.4em;
+    text-transform:uppercase;
+    margin-bottom:1.6rem;
+  }
+  .glance-panel-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
+    gap:1.8rem;
+  }
+  .glance-panel-item{ display:flex; flex-direction:column; gap:0.35rem; }
+  .glance-panel-label-small{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:0.85rem;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color: var(--mist);
+  }
+  .glance-panel-value{
+    font-family:'Playfair Display', serif;
+    font-size:1.35rem;
+    color: var(--white);
+    line-height:1.25;
+  }
+  .glance-panel-value small{
+    display:block;
+    font-family:'Lora', Georgia, serif;
+    font-style:normal;
+    font-size:0.8rem;
+    color: var(--mist);
+    margin-top:2px;
+  }
+  .glance-panel-map{
+    grid-column: 1 / -1;
+    margin-top: 0.6rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid rgba(168,213,232,0.15);
+    display:flex; align-items:center; gap:0.6rem;
+    font-family:'Cormorant Garamond', serif;
+    font-size:1rem;
+    letter-spacing:0.1em;
+    color: var(--frost);
+    text-decoration:none;
+    width:fit-content;
+  }
+  .glance-panel-map svg{ transition: transform 0.3s ease; }
+  .glance-panel-map:hover svg{ transform: translateX(4px); }
+  .glance-panel-map:hover{ color: var(--gold); }
+  @media (max-width:600px){
+    .glance-panel{ padding: 1.8rem 1.6rem 2rem; }
+  }
+
+  /* ─── FAQ ─── */
+  .faq-section{
+    padding: 4rem 0 2rem;
+  }
+  .faq-label{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    color: var(--gold);
+    font-size:0.95rem;
+    letter-spacing:0.4em;
+    text-transform:uppercase;
+    margin-bottom:0.8rem;
+  }
+  .faq-title{
+    font-family:'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 2.2rem;
+  }
+  .faq-item{
+    border-top: 1px solid rgba(168,213,232,0.15);
+    padding: 1.5rem 0;
+  }
+  .faq-item:last-child{
+    border-bottom: 1px solid rgba(168,213,232,0.15);
+  }
+  .faq-question{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap: 1.2rem;
+    cursor: pointer;
+    list-style: none;
+  }
+  .faq-question::-webkit-details-marker{ display:none; }
+  .faq-question h3{
+    font-family:'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.4;
+  }
+  .faq-icon{
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    border: 1px solid rgba(168,213,232,0.3);
+    border-radius: 50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color: var(--frost);
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    margin-top: 2px;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  details[open] .faq-icon{
+    transform: rotate(45deg);
+    background: rgba(91,163,201,0.15);
+  }
+  .faq-answer{
+    padding-top: 1rem;
+    max-width: 68ch;
+  }
+  .faq-answer p{
+    font-size: 1rem;
+    line-height: 1.85;
+    color: #c8d8e4;
+  }
+  .faq-answer strong{
+    color: var(--white);
+    font-weight: 600;
+  }
+
   /* ─── FOOTER ─── */
   footer {
     text-align: center;
@@ -528,6 +676,39 @@
     <div class="stat">
       <span class="stat-value">1</span>
       <span class="stat-label">Snow Storm</span>
+    </div>
+  </div>
+
+  <!-- ════════════════ AT A GLANCE ════════════════ -->
+  <div class="glance-panel">
+    <p class="glance-panel-label">At a Glance</p>
+    <div class="glance-panel-grid">
+
+      <div class="glance-panel-item">
+        <span class="glance-panel-label-small">Distance</span>
+        <span class="glance-panel-value">~450 mi <small>one-way, Boston → Niagara Falls</small></span>
+      </div>
+
+      <div class="glance-panel-item">
+        <span class="glance-panel-label-small">Drive Time</span>
+        <span class="glance-panel-value">7.5–8 hrs <small>one-way, no stops</small></span>
+      </div>
+
+      <div class="glance-panel-item">
+        <span class="glance-panel-label-small">Best Season</span>
+        <span class="glance-panel-value">Winter <small>Dec–Feb, for frozen falls & light-up mist</small></span>
+      </div>
+
+      <div class="glance-panel-item">
+        <span class="glance-panel-label-small">Budget</span>
+        <span class="glance-panel-value">$700–950 <small>4 days, per family — gas, hotels, food</small></span>
+      </div>
+
+      <a class="glance-panel-map" href="https://www.google.com/maps/dir/Boston,+MA/Niagara+Falls,+NY" target="_blank" rel="noopener">
+        Open route in Google Maps
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+
     </div>
   </div>
 </div>
@@ -772,6 +953,73 @@
     <p class="body-text">
       Until the next road. ❄️
     </p>
+  </section>
+
+  <!-- ════════════════ FAQ ════════════════ -->
+  <section class="faq-section">
+    <p class="faq-label">Before You Go</p>
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+
+    <details class="faq-item" open>
+      <summary class="faq-question">
+        <h3>Is Niagara Falls worth visiting in winter?</h3>
+        <span class="faq-icon">+</span>
+      </summary>
+      <div class="faq-answer">
+        <p>Absolutely — winter is when Niagara shows a side most visitors never see. Ice bridges build up at the base of the falls, the surrounding rock faces glaze over in sheets of blue-white ice, and the crowds thin out dramatically compared to summer. The <strong>Winter Festival of Lights</strong> also runs through the season, so the falls and mist are lit up in color after dark.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">
+        <h3>How cold does it actually get?</h3>
+        <span class="faq-icon">+</span>
+      </summary>
+      <div class="faq-answer">
+        <p>Expect daytime highs in the low-to-mid 20s°F and overnight lows that can dip into the low teens — we hit <strong>12°F</strong> on Christmas morning. Add the mist off the falls and the effective wind chill at the viewpoints is colder than the thermometer suggests. Real winter boots, a windproof outer layer, and hand warmers make a bigger difference than an extra sweater.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">
+        <h3>Do I need to worry about snow storms on this drive?</h3>
+        <span class="faq-icon">+</span>
+      </summary>
+      <div class="faq-answer">
+        <p>Yes — this route crosses lake-effect snow territory around Buffalo and the Finger Lakes, where storms can intensify faster than forecast. Check the <strong>National Weather Service</strong> the morning of departure, keep the gas tank above half, and carry an emergency kit (blankets, snacks, a phone charger, windshield-washer fluid rated for sub-zero temps). If visibility drops, pull off — there's no itinerary worth pushing through a whiteout.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">
+        <h3>Are Taughannock Falls and Ithaca Falls worth the detour?</h3>
+        <span class="faq-icon">+</span>
+      </summary>
+      <div class="faq-answer">
+        <p>Yes, and they barely add time to the trip since they sit right along the route between Boston and Niagara. <strong>Taughannock Falls</strong> is taller than Niagara at 215 feet and is a short walk from the parking lot. <strong>Ithaca Falls</strong> is free, unguarded, and just steps from downtown Ithaca. Both are dramatically transformed by winter ice and see a fraction of Niagara's crowds.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">
+        <h3>Should I bring microspikes or ice cleats?</h3>
+        <span class="faq-icon">+</span>
+      </summary>
+      <div class="faq-answer">
+        <p>Strongly recommended. Trails at Taughannock and the Niagara Gorge get packed down into solid ice, and standard boot treads aren't enough on the steeper sections. A basic pair of slip-on microspikes costs very little and makes the difference between a confident hike and a cautious shuffle.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-question">
+        <h3>Is this a good trip to do around Christmas?</h3>
+        <span class="faq-icon">+</span>
+      </summary>
+      <div class="faq-answer">
+        <p>It can be one of the most memorable ways to spend the holiday — Niagara-on-the-Lake is fully decorated, restaurants near the falls do a Christmas Eve dinner service, and the park itself is far emptier than usual on Christmas Day morning. Just confirm ahead of time which restaurants and shops are open, since small-town hours shrink around the holiday.</p>
+      </div>
+    </details>
+
   </section>
 </div>
 
